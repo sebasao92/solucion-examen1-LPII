@@ -20,4 +20,8 @@ public class Carro extends Vehiculo{
                 " Numero de Puertas:" + numeroPuertas +
                 super.toString();
     }
+
+    public int getNumeroPuertas() {
+        return numeroPuertas;
+    }
 }
