@@ -20,4 +20,5 @@ public class Avion extends Vehiculo {
                 " Altitud Máxima:" + altitudMaxima +
                 super.toString();
     }
+
 }
