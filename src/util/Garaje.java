@@ -6,7 +6,7 @@ import model.Vehiculo;
 public class Garaje {
 
     public static final int NUMERO_MAXIMO_DE_VEHICULOS = 1;
-    private Vehiculo[] vehiculos = new Vehiculo[NUMERO_MAXIMO_DE_VEHICULOS];
+    private final Vehiculo[] vehiculos = new Vehiculo[NUMERO_MAXIMO_DE_VEHICULOS];
     public static final String MENSAJE_DE_ERROR_DE_GARAJE_LLENO = "El garaje está lleno";
 
     public void agregarVehiculo(Vehiculo nuevoVehiculo){

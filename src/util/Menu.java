@@ -22,7 +22,7 @@ public class Menu {
     }
 
     public void correrMenu(){
-        int opcion = 0;
+        int opcion;
         do{
             mostrarMenu();
             opcion = ValidadorUno.validarOpcion();
@@ -39,8 +39,8 @@ public class Menu {
     }
 
     public Vehiculo correrMenuAgregarVehiculo(){
-        int opcion = 0;
-        Vehiculo vehiculo = null;
+        int opcion;
+        Vehiculo vehiculo;
         do{
             menuVehiculos();
             opcion = ValidadorUno.validarOpcion();
@@ -60,7 +60,7 @@ public class Menu {
     public void elegirOperacion(int opcion){
         switch (opcion){
             case 1:
-                Vehiculo nuevoVehiculo = null;
+                Vehiculo nuevoVehiculo;
                 if(!garaje.estaElGarajeLleno()) {
                     System.out.println("Agregando vehiculos...");
                     nuevoVehiculo = correrMenuAgregarVehiculo();
