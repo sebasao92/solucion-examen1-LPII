@@ -14,6 +14,11 @@ public class Avion extends Vehiculo {
         this.altitudMaxima = altitudMaxima;
     }
 
+    public Avion(AvionBuilder avionBuilder) {
+        super(avionBuilder);
+        this.altitudMaxima = avionBuilder.altitudMaxima;
+    }
+
     @Override
     public String toString() {
         return  this.getClass().getName() + " -->" +
@@ -21,5 +26,22 @@ public class Avion extends Vehiculo {
                 super.toString();
     }
 
+    public static AvionBuilder builder() {
+        return new AvionBuilder();
+    }
+
+    public static class AvionBuilder extends VehiculoBuilder {
+
+        private double altitudMaxima;
+
+        public AvionBuilder altitud(double altitudMaxima) {
+            this.altitudMaxima = altitudMaxima;
+            return this;
+        }
+
+        public Avion build() {
+            return new Avion(this);
+        }
+    }
 
 }

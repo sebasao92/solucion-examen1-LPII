@@ -1,8 +1,8 @@
 package factory.method;
 
-import model.Vehiculo;
+import model.Vehiculo.VehiculoBuilder;
 
 public interface VehiculoFactory {
 
-    Vehiculo crearVehiculo();
+    VehiculoBuilder crearVehiculo();
 }

@@ -18,6 +18,12 @@ public class Vehiculo {
         this.referencia = vehiculo.getReferencia();
     }
 
+    public Vehiculo(VehiculoBuilder vehiculoBuilder) {
+        this.color = vehiculoBuilder.color;
+        this.referencia = vehiculoBuilder.referencia;
+        this.velocidadMaxima = vehiculoBuilder.velocidadMaxima;
+    }
+
     @Override
     public String toString() {
         return  " model.Color:" + color +
@@ -63,7 +69,7 @@ public class Vehiculo {
         }
 
         public Vehiculo build() {
-            return new Vehiculo(this.color, this.referencia, this.velocidadMaxima);
+            return new Vehiculo(this);
         }
     }
 }

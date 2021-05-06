@@ -14,10 +14,34 @@ public class Yate extends Vehiculo {
         this.pesoMaximo = pesoMaximo;
     }
 
+    public Yate(YateBuilder yateBuilder) {
+        super(yateBuilder);
+        this.pesoMaximo = yateBuilder.pesoMaximo;
+    }
+
     @Override
     public String toString() {
         return  this.getClass().getName() + " -->" +
                 " Peso Máximo:" + pesoMaximo +
                 super.toString();
+    }
+
+    public static YateBuilder yateBuilder(){
+        return new YateBuilder();
+    }
+
+    public static class YateBuilder extends VehiculoBuilder {
+
+        private double pesoMaximo;
+
+        public YateBuilder pesoMaximo(double pesoMaximo) {
+            this.pesoMaximo = pesoMaximo;
+            return this;
+        }
+
+        @Override
+        public Yate build() {
+            return new Yate(this);
+        }
     }
 }

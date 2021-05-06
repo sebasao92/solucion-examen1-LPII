@@ -19,6 +19,11 @@ public class Carro extends Vehiculo implements Cloneable {
         this.numeroPuertas = carro.numeroPuertas;
     }
 
+    public Carro(CarroBuilder carroBuilder) {
+        super(carroBuilder);
+        this.numeroPuertas = carroBuilder.numeroPuertas;
+    }
+
     @Override
     public String toString() {
         return  this.getClass().getName() + " -->" +
@@ -33,5 +38,24 @@ public class Carro extends Vehiculo implements Cloneable {
 
     public int getNumeroPuertas() {
         return numeroPuertas;
+    }
+
+    public static CarroBuilder builder(){
+        return new CarroBuilder();
+    }
+
+    public static class CarroBuilder extends VehiculoBuilder {
+
+        private int numeroPuertas;
+
+        public CarroBuilder numeroPuertas(int numeroPuertas){
+            this.numeroPuertas = numeroPuertas;
+            return this;
+        }
+
+        @Override
+        public Carro build() {
+            return new Carro(this);
+        }
     }
 }

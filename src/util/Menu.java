@@ -12,8 +12,7 @@ public class Menu {
     private static Menu instancia;
     private final Garaje garaje = new Garaje();
 
-    private Menu(){
-    }
+    private Menu(){ }
 
     public void mostrarMenu(){
         System.out.println("Bienvenido al garaje");
