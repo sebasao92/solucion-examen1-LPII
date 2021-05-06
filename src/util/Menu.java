@@ -82,6 +82,11 @@ public class Menu {
     }
 
     public static Menu getInstance(){
-        return Objects.isNull(instancia) ? new Menu() : instancia;
+        return Objects.isNull(instancia) ? setMenu() : instancia;
+    }
+
+    private static Menu setMenu() {
+        instancia = new Menu();
+        return instancia;
     }
 }
