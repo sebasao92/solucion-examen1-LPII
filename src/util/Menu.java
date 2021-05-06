@@ -2,10 +2,18 @@ package util;
 
 import model.Color;
 import model.Vehiculo;
+import util.recibidor.RecibidorDeInformacionUno;
+import util.validador.ValidadorUno;
+
+import java.util.Objects;
 
 public class Menu {
 
+    private static Menu instancia;
     private final Garaje garaje = new Garaje();
+
+    private Menu(){
+    }
 
     public void mostrarMenu(){
         System.out.println("Bienvenido al garaje");
@@ -18,7 +26,7 @@ public class Menu {
         int opcion = 0;
         do{
             mostrarMenu();
-            opcion = Validador.validarOpcion();
+            opcion = ValidadorUno.validarOpcion();
             elegirOperacion(opcion);
         }while(opcion != 3);
     }
@@ -36,8 +44,8 @@ public class Menu {
         Vehiculo vehiculo = null;
         do{
             menuVehiculos();
-            opcion = Validador.validarOpcion();
-            vehiculo = RecibidorDeInformacion.elegirVehiculo(opcion);
+            opcion = ValidadorUno.validarOpcion();
+            vehiculo = RecibidorDeInformacionUno.elegirVehiculo(opcion);
         }while (opcion != 4 && vehiculo == null);
         return vehiculo;
     }
@@ -72,5 +80,9 @@ public class Menu {
             default:
                 System.out.println("Opción no válida");
         }
+    }
+
+    public static Menu getInstance(){
+        return Objects.isNull(instancia) ? new Menu() : instancia;
     }
 }

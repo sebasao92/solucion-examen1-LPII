@@ -1,6 +1,6 @@
 package model;
 
-public class Carro extends Vehiculo{
+public class Carro extends Vehiculo implements Cloneable {
 
     private final int numeroPuertas;
 
@@ -14,11 +14,21 @@ public class Carro extends Vehiculo{
         this.numeroPuertas = numeroPuertas;
     }
 
+    public Carro(Carro carro){
+        super(carro);
+        this.numeroPuertas = carro.numeroPuertas;
+    }
+
     @Override
     public String toString() {
         return  this.getClass().getName() + " -->" +
                 " Numero de Puertas:" + numeroPuertas +
                 super.toString();
+    }
+
+    @Override
+    protected Carro clone()  {
+        return new Carro(this);
     }
 
     public int getNumeroPuertas() {

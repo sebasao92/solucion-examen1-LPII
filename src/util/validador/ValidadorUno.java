@@ -1,9 +1,9 @@
-package util;
+package util.validador;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Validador {
+public class ValidadorUno implements Validador{
 
     private static Scanner scanner = new Scanner(System.in);
     public static double validarDouble(String mensaje){

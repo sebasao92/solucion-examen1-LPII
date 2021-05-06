@@ -1,11 +1,12 @@
-package util;
+package util.recibidor;
 
 import model.*;
 import util.Menu;
+import util.validador.ValidadorUno;
 
 import java.util.Scanner;
 
-public class RecibidorDeInformacion {
+public class RecibidorDeInformacionUno implements RecibidorDeInformacion {
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -15,27 +16,27 @@ public class RecibidorDeInformacion {
         Color color = null;
         do {
             Menu.menuColor();
-            opcion = Validador.validarOpcion();
+            opcion = ValidadorUno.validarOpcion();
             color = elegirColor(opcion);
         }while (color == null);
         System.out.println("Ingrese la referencia del vehiculo");
         String referencia = scanner.nextLine();
-        double velocidadMaxima = Validador.validarDouble("Ingrese la velocidad máxima");
+        double velocidadMaxima = ValidadorUno.validarDouble("Ingrese la velocidad máxima");
         return new Vehiculo(Color.NEGRO, referencia, velocidadMaxima);
     }
 
     public static Avion crearAvion(){
-        double altitudMaxima = Validador.validarDouble("Ingrese la altitud máxima");
+        double altitudMaxima = ValidadorUno.validarDouble("Ingrese la altitud máxima");
         return new Avion(crearVehiculo(), altitudMaxima);
     }
 
     public static Yate crearYate(){
-        double pesoMaximo = Validador.validarDouble("Ingrese el peso máximo");
+        double pesoMaximo = ValidadorUno.validarDouble("Ingrese el peso máximo");
         return new Yate(crearVehiculo(), pesoMaximo);
     }
 
     public static Carro crearCarro(){
-        int numeroPuertas = Validador.validarInt("Ingrese el número de puertas");
+        int numeroPuertas = ValidadorUno.validarInt("Ingrese el número de puertas");
         return new Carro(crearVehiculo(), numeroPuertas);
     }
 
