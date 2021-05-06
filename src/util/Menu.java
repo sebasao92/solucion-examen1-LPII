@@ -32,9 +32,9 @@ public class Menu {
 
     public void menuVehiculos(){
         System.out.println("¿Qué vehiculo quiere agregar?");
-        System.out.println("1. model.Avion");
-        System.out.println("2. model.Carro");
-        System.out.println("3. model.Yate");
+        System.out.println("1. Avion");
+        System.out.println("2. Carro");
+        System.out.println("3. Yate");
         System.out.println("4. Salir");
     }
 

@@ -21,7 +21,7 @@ public class Avion extends Vehiculo {
 
     @Override
     public String toString() {
-        return  this.getClass().getName() + " -->" +
+        return this.getClass().getSimpleName() + " -->" +
                 " Altitud Máxima:" + altitudMaxima +
                 super.toString();
     }
@@ -36,6 +36,24 @@ public class Avion extends Vehiculo {
 
         public AvionBuilder altitud(double altitudMaxima) {
             this.altitudMaxima = altitudMaxima;
+            return this;
+        }
+
+        @Override
+        public AvionBuilder color(Color color) {
+            super.color(color);
+            return this;
+        }
+
+        @Override
+        public AvionBuilder referencia(String referencia) {
+            super.referencia(referencia);
+            return this;
+        }
+
+        @Override
+        public AvionBuilder velocidadMaxima(double velocidadMaxima) {
+            super.velocidadMaxima(velocidadMaxima);
             return this;
         }
 

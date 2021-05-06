@@ -1,14 +1,14 @@
 package factory.method;
 
+import model.Carro;
+import model.Carro.CarroBuilder;
 import model.Vehiculo;
-import model.Yate;
-import model.Yate.YateBuilder;
 
-public class YateFactory implements VehiculoFactory {
+public class CarroFactory implements VehiculoFactory {
 
     @Override
-    public YateBuilder crearVehiculo(Vehiculo vehiculo) {
-        return Yate.builder()
+    public CarroBuilder crearVehiculo(Vehiculo vehiculo) {
+        return Carro.builder()
                 .color(vehiculo.getColor())
                 .referencia(vehiculo.getReferencia())
                 .velocidadMaxima(vehiculo.getVelocidadMaxima());

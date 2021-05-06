@@ -26,7 +26,7 @@ public class Carro extends Vehiculo implements Cloneable {
 
     @Override
     public String toString() {
-        return  this.getClass().getName() + " -->" +
+        return  this.getClass().getSimpleName() + " -->" +
                 " Numero de Puertas:" + numeroPuertas +
                 super.toString();
     }
@@ -50,6 +50,24 @@ public class Carro extends Vehiculo implements Cloneable {
 
         public CarroBuilder numeroPuertas(int numeroPuertas){
             this.numeroPuertas = numeroPuertas;
+            return this;
+        }
+
+        @Override
+        public CarroBuilder color(Color color) {
+            super.color(color);
+            return this;
+        }
+
+        @Override
+        public CarroBuilder referencia(String referencia) {
+            super.referencia(referencia);
+            return this;
+        }
+
+        @Override
+        public CarroBuilder velocidadMaxima(double velocidadMaxima) {
+            super.velocidadMaxima(velocidadMaxima);
             return this;
         }
 

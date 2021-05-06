@@ -21,12 +21,12 @@ public class Yate extends Vehiculo {
 
     @Override
     public String toString() {
-        return  this.getClass().getName() + " -->" +
+        return  this.getClass().getSimpleName() + " -->" +
                 " Peso Máximo:" + pesoMaximo +
                 super.toString();
     }
 
-    public static YateBuilder yateBuilder(){
+    public static YateBuilder builder(){
         return new YateBuilder();
     }
 
@@ -36,6 +36,24 @@ public class Yate extends Vehiculo {
 
         public YateBuilder pesoMaximo(double pesoMaximo) {
             this.pesoMaximo = pesoMaximo;
+            return this;
+        }
+
+        @Override
+        public YateBuilder color(Color color) {
+            super.color(color);
+            return this;
+        }
+
+        @Override
+        public YateBuilder referencia(String referencia) {
+            super.referencia(referencia);
+            return this;
+        }
+
+        @Override
+        public YateBuilder velocidadMaxima(double velocidadMaxima) {
+            super.velocidadMaxima(velocidadMaxima);
             return this;
         }
 

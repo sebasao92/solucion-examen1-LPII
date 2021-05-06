@@ -1,5 +1,8 @@
 package util.recibidor;
 
+import factory.method.AvionFactory;
+import factory.method.CarroFactory;
+import factory.method.YateFactory;
 import model.*;
 import util.Menu;
 import util.validador.ValidadorUno;
@@ -22,22 +25,33 @@ public class RecibidorDeInformacionUno implements RecibidorDeInformacion {
         System.out.println("Ingrese la referencia del vehiculo");
         String referencia = scanner.nextLine();
         double velocidadMaxima = ValidadorUno.validarDouble("Ingrese la velocidad máxima");
-        return new Vehiculo(Color.NEGRO, referencia, velocidadMaxima);
+
+        return Vehiculo.builder()
+                .color(Color.NEGRO)
+                .referencia(referencia)
+                .velocidadMaxima(velocidadMaxima)
+                .build();
     }
 
     public static Avion crearAvion(){
         double altitudMaxima = ValidadorUno.validarDouble("Ingrese la altitud máxima");
-        return new Avion(crearVehiculo(), altitudMaxima);
+        return new AvionFactory().crearVehiculo(crearVehiculo())
+                .altitud(altitudMaxima)
+                .build();
     }
 
     public static Yate crearYate(){
         double pesoMaximo = ValidadorUno.validarDouble("Ingrese el peso máximo");
-        return new Yate(crearVehiculo(), pesoMaximo);
+        return new YateFactory().crearVehiculo(crearVehiculo())
+                .pesoMaximo(pesoMaximo)
+                .build();
     }
 
     public static Carro crearCarro(){
         int numeroPuertas = ValidadorUno.validarInt("Ingrese el número de puertas");
-        return new Carro(crearVehiculo(), numeroPuertas);
+        return new CarroFactory().crearVehiculo(crearVehiculo())
+                .numeroPuertas(numeroPuertas)
+                .build();
     }
 
     public static Vehiculo elegirVehiculo(int opcion){
