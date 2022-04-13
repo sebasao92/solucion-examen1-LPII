@@ -3,6 +3,8 @@ package util;
 import exception.GarajeException;
 import model.Vehiculo;
 
+import java.util.Objects;
+
 public class Garaje {
 
     public static final int NUMERO_MAXIMO_DE_VEHICULOS = 1;
@@ -10,7 +12,7 @@ public class Garaje {
     public static final String MENSAJE_DE_ERROR_DE_GARAJE_LLENO = "El garaje está lleno";
 
     public void agregarVehiculo(Vehiculo nuevoVehiculo){
-        if(null != nuevoVehiculo) {
+        if(Objects.nonNull(nuevoVehiculo)) {
             if (estaElGarajeLleno()) {
                 throw new GarajeException(MENSAJE_DE_ERROR_DE_GARAJE_LLENO);
             }
